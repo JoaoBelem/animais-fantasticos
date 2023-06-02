@@ -1,9 +1,3 @@
-// const $ = require('jquery');
-// import $ from '../node _modules/jquery/dist/jquery.js';
-
-// console.log($('#faq'));
-// $('#faq').remove();
-
 import ScrollSuave from './modules/scroll-suave.js';
 import initAnimacaoScroll from './modules/scroll-animacao.js';
 import initAccordion from './modules/accordion.js';
