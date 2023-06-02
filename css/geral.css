@@ -69,7 +69,9 @@ body {
   grid-column: 1 / 4;
   user-select: none;
 }
-
+.animais{
+  margin-top: 54px;
+}
 .animais h2 {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 1rem;
@@ -239,6 +241,9 @@ body {
   }
   nav.menu{
     margin-bottom: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
   }
 }
 .js [data-tab="content"] section {

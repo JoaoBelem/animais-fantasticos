@@ -7,7 +7,7 @@ export default function initMenuMobile() {
   const eventos = ['click', 'touch'];
   const eventos2 = ['click', 'touch', 'touchstart'];
   const opcoesMenu = document.querySelectorAll('[data-menu="list"] > li');
-  console.log(opcoesMenu);
+
   opcoesMenu.forEach((e) => {
     e.addEventListener('click', () => {
       menuList.classList.remove('active');
