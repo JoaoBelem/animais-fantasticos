@@ -70,9 +70,6 @@ body {
   grid-column: 1 / 4;
   user-select: none;
 }
-.animais{
-  margin-top: 54px;
-}
 .animais h2 {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 1rem;
@@ -101,6 +98,7 @@ body {
   height: 370px;
   overflow-y: scroll;
   grid-column: 2;
+  position: relative;
 }
 
 .animais-lista li {
