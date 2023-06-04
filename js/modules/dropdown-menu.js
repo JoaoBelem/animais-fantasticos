@@ -1,20 +1,29 @@
+// !!! CÓDIGO PODRE !!!
 import outsideClick from './outsideclick.js';
 
 export default function initDropdownMenu() {
-  function handleClick(event) {
-    event.preventDefault();
-    console.log(this);
+  const opcoesMenu = document.querySelectorAll('[data-menu="list"] > li:not([data-dropdown])');
+  const dropdownMenus = document.querySelectorAll('[data-dropdown]');
+
+  function handleClick() {
     this.classList.toggle('active');
     outsideClick(this, ['touchstart', 'click'], () => {
       this.classList.remove('active');
     });
   }
-  const dropdownMenus = document.querySelectorAll('[data-dropdown]');
+  
   dropdownMenus.forEach((menu) => {
-    ['touchstart', 'click'].forEach((event) => {
-      console.log(event)
+    ['touchstart', 'click'].forEach(() => {
       // menu.removeEventListener();
       menu.addEventListener('click', handleClick);
     });
   });
+
+  opcoesMenu.forEach((i) => {
+    i.addEventListener('click', () => {
+      dropdownMenus.forEach((e) => {
+        e.classList.remove('active');
+      });
+    })
+  })
 }

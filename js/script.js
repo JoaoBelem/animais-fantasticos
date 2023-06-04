@@ -27,8 +27,10 @@ document.addEventListener('keydown', (e) => {
 
 initModal();
 initTooltip();
-initDropdownMenu();
+
 initMenuMobile();
+initDropdownMenu();
+
 initFuncionamento();
 initFetchAnimais();
 initFetchBitcoin();

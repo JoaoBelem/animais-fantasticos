@@ -6,13 +6,13 @@ export default function initMenuMobile() {
   const menuList = document.querySelector('[data-menu="list"]');
   const eventos = ['click', 'touch'];
   const eventos2 = ['click', 'touch', 'touchstart'];
-  const opcoesMenu = document.querySelectorAll('[data-menu="list"] > li');
+  const opcoesMenu = document.querySelectorAll('[data-menu="list"] > li:not([data-dropdown])');
 
   opcoesMenu.forEach((e) => {
     e.addEventListener('click', () => {
+      menuList.classList.remove('active');
+      menuButton.classList.remove('active');
       // event.stopPropagation();
-      // menuList.classList.remove('active');
-      // menuButton.classList.remove('active');
     });
   });
 
