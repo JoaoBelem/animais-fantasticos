@@ -1,3 +1,5 @@
+// !!! Código interligado com dropdown-menu.js
+
 import outsideClick from './outsideclick.js';
 
 export default function initMenuMobile() {
@@ -7,12 +9,12 @@ export default function initMenuMobile() {
   const eventos = ['click', 'touch'];
   const eventos2 = ['click', 'touch', 'touchstart'];
   const opcoesMenu = document.querySelectorAll('[data-menu="list"] > li:not([data-dropdown])');
+  const dropdownMenus = document.querySelectorAll('[data-dropdown]');
 
   opcoesMenu.forEach((e) => {
     e.addEventListener('click', () => {
       menuList.classList.remove('active');
       menuButton.classList.remove('active');
-      // event.stopPropagation();
     });
   });
 
@@ -22,6 +24,9 @@ export default function initMenuMobile() {
     outsideClick(menu, eventos2, () => {
       menuList.classList.remove('active');
       menuButton.classList.remove('active');
+      dropdownMenus.forEach((i) => {
+        i.classList.remove('active');
+      })
     });
   }
 

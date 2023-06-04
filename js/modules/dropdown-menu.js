@@ -1,5 +1,4 @@
-// !!! CÓDIGO PODRE !!!
-import outsideClick from './outsideclick.js';
+// !!! Código interligado com menu-mobile.js
 
 export default function initDropdownMenu() {
   const opcoesMenu = document.querySelectorAll('[data-menu="list"] > li:not([data-dropdown])');
@@ -7,11 +6,7 @@ export default function initDropdownMenu() {
 
   function handleClick() {
     this.classList.toggle('active');
-    outsideClick(this, ['touchstart', 'click'], () => {
-      this.classList.remove('active');
-    });
   }
-  
   dropdownMenus.forEach((menu) => {
     ['touchstart', 'click'].forEach(() => {
       // menu.removeEventListener();
@@ -24,6 +19,7 @@ export default function initDropdownMenu() {
       dropdownMenus.forEach((e) => {
         e.classList.remove('active');
       });
-    })
-  })
+    });
+  });
 }
+
