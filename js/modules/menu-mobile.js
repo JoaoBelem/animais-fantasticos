@@ -1,36 +1,67 @@
-// !!! Código interligado com dropdown-menu.js
+/*
+O menu deve ter a classe "menu".
+O botão do menu mobile deve ter o atributo [data-menu="button"].
+A lista de itens deve ter o atributo [data-menu="list"].
+
+Caso haja uma lista de itens(dropdown menu), o item pai deve ter o atributo [data-dropdown].
+e a lista de itens(dropdown menu), a mesma deve ter o atributo [data-menu="list"].
+*/
 
 import outsideClick from './outsideclick.js';
 
-export default function initMenuMobile() {
-  const menu = document.querySelector('nav.menu');
-  const menuButton = document.querySelector('[data-menu="button"]');
-  const menuList = document.querySelector('[data-menu="list"]');
-  const eventos = ['click', 'touch'];
-  const eventos2 = ['click', 'touch', 'touchstart'];
-  const opcoesMenu = document.querySelectorAll('[data-menu="list"] > li:not([data-dropdown])');
-  const dropdownMenus = document.querySelectorAll('[data-dropdown]');
+export default class MenuMobile {
+  constructor(){
+    this.menu = document.querySelector('nav.menu');
+    this.menuButton = document.querySelector('[data-menu="button"]');
+    this.menuList = document.querySelector('[data-menu="list"]');
+    this.eventos = ['click', 'touch'];
+    this.eventos2 = ['click', 'touch', 'touchstart'];
+    this.opcoesMenu = document.querySelectorAll('[data-menu="list"] > li:not([data-dropdown])');
+    this.dropdownMenus = document.querySelectorAll('[data-dropdown]');
 
-  opcoesMenu.forEach((e) => {
-    e.addEventListener('click', () => {
-      menuList.classList.remove('active');
-      menuButton.classList.remove('active');
-    });
-  });
+    this.openMenu = this.openMenu.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-  function openMenu() {
-    menuList.classList.toggle('active');
-    menuButton.classList.toggle('active');
-    outsideClick(menu, eventos2, () => {
-      menuList.classList.remove('active');
-      menuButton.classList.remove('active');
-      dropdownMenus.forEach((i) => {
+  openMenu() {
+    this.menuList.classList.toggle('active');
+    this.menuButton.classList.toggle('active');
+    outsideClick(this.menu, this.eventos2, () => {
+      this.menuList.classList.remove('active');
+      this.menuButton.classList.remove('active');
+      this.dropdownMenus.forEach((i) => {
         i.classList.remove('active');
       })
     });
   }
 
-  if (menuButton) {
-    eventos.forEach((evento) => menuButton.addEventListener(evento, openMenu));
+  handleClick() {
+    this.classList.toggle('active');
+  }
+
+  init(){
+    if (this.menuButton) {
+      this.eventos.forEach((evento) => this.menuButton.addEventListener(evento, this.openMenu));
+    }
+    this.dropdownMenus.forEach((dropdown) => {
+      dropdown.addEventListener('click', () => {
+        dropdown.classList.toggle('active');
+      });
+    });
+
+    this.opcoesMenu.forEach((i) => {
+      i.addEventListener('click', () => {
+        this.dropdownMenus.forEach((e) => {
+          e.classList.remove('active');
+        });
+      });
+    });
+
+    this.opcoesMenu.forEach((e) => {
+      e.addEventListener('click', () => {
+        this.menuList.classList.remove('active');
+        this.menuButton.classList.remove('active');
+      });
+    });
   }
 }
