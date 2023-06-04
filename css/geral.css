@@ -49,7 +49,9 @@ body {
   font-size: 0.875rem;
   letter-spacing: .1em;
 }
-
+[data-dropdown] a{
+  cursor: pointer;
+}
 .grid-section {
   grid-column: 2 / 4;
   width: 100%;

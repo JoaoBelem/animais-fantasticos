@@ -13,7 +13,15 @@ export default class ScrollSuave {
     event.preventDefault();
     const href = event.currentTarget.getAttribute('href');
     const section = document.querySelector(href);
-    section.scrollIntoView(this.options);
+
+    if (window.matchMedia('(max-width:  700px)').matches){
+      window.scroll({
+        behavior: 'smooth',
+        top: section.offsetTop - 54
+      });
+    }else {
+      section.scrollIntoView(this.options);
+    }
   }
 
   addLinkEvent() {

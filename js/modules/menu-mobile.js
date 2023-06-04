@@ -10,8 +10,9 @@ export default function initMenuMobile() {
 
   opcoesMenu.forEach((e) => {
     e.addEventListener('click', () => {
-      menuList.classList.remove('active');
-      menuButton.classList.remove('active');
+      // event.stopPropagation();
+      // menuList.classList.remove('active');
+      // menuButton.classList.remove('active');
     });
   });
 
