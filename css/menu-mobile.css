@@ -54,4 +54,10 @@
     position: static;
     border: none;
   }
+  .js [data-dropdown] > .dropdown-menu {
+    display: none;
+  }
+  .js [data-dropdown].active .dropdown-menu {
+    display: block;
+  }
 }
