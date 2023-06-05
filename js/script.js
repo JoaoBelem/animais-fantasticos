@@ -26,7 +26,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 
-const menuMobile = new MenuMobile();
+const menuMobile = new MenuMobile('nav.menu');
 menuMobile.init();
 
 initModal();
