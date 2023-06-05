@@ -3,12 +3,12 @@ import Accordion from './modules/accordion.js';
 import TabNav from './modules/tabnav.js';
 import MenuMobile from './modules/menu-mobile.js';
 
-import initAnimacaoScroll from './modules/scroll-animacao.js';
-import initModal from './modules/modal.js';
+import Modal from './modules/modal.js';
 import initTooltip from './modules/tooltip.js';
 import initFuncionamento from './modules/funcionamento.js';
 import initFetchAnimais from './modules/fetch-animais.js';
 import initFetchBitcoin from './modules/fetch-bitcoin.js';
+import initAnimacaoScroll from './modules/scroll-animacao.js';
 
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
@@ -26,10 +26,13 @@ document.addEventListener('keydown', (e) => {
 });
 
 
-const menuMobile = new MenuMobile();
+const menuMobile = new MenuMobile('nav.menu');
 menuMobile.init();
 
-initModal();
+const modal = new Modal('[data-modal="abrir"]', '[data-modal="fechar"]', '[data-modal="container"]');
+modal.init();
+modal.toggleModal();
+
 initTooltip();
 initFuncionamento();
 initFetchAnimais();
