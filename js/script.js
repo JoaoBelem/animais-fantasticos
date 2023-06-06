@@ -37,3 +37,5 @@ initFuncionamento();
 initFetchAnimais();
 initFetchBitcoin();
 initAnimacaoScroll();
+
+console.log('v 1.0');
