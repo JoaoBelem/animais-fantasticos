@@ -70,5 +70,6 @@ export default class MenuMobile {
         this.menuButton.classList.remove('active');
       });
     });
+    return this;
   }
 }

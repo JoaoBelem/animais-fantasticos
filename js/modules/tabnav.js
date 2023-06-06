@@ -44,5 +44,6 @@ export default class TabNav {
       });
       this.goto(this.initial);
     }
+    return this;
   }
 }
