@@ -11,12 +11,10 @@ export default class Tooltip {
   }
 
   onMouseMove(item) {
-    if (item.pageX > window.innerWidth * .6) {
-      // console.log(this.tooltipBox.offsetWidth);
-      this.tooltipBox.style.top = `${item.pageY + 20}px`;
+    this.tooltipBox.style.top = `${item.pageY + 20}px`;
+    if ((item.pageX + this.tooltipBox.offsetWidth + 50) > window.innerWidth) {
       this.tooltipBox.style.left = `${item.pageX - this.tooltipBox.offsetWidth - 20}px`;
     } else{
-      this.tooltipBox.style.top = `${item.pageY + 20}px`;
       this.tooltipBox.style.left = `${item.pageX + 20}px`;
     }
   }
