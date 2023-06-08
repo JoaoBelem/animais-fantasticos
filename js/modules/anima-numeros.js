@@ -1,31 +1,45 @@
-export default function initAnimaNumeros() {
-  function animaNumeros() {
-    const numeros = document.querySelectorAll('[data-numero]');
+/* eslint-disable no-param-reassign */
+export default class AnimaNumeros {
+  constructor() {
+    this.numeros = document.querySelectorAll('[data-numero]');
+    this.observerTarget = document.querySelector('.numeros');
 
-    numeros.forEach((numero) => {
-      const total = +numero.innerText;
-      const inscremento = Math.floor(total / 100);
-      let start = 0;
-      const timer = setInterval(() => {
-        start += inscremento;
-        numero.innerText = start;
-        if (start > total) {
-          numero.innerText = total;
-          clearInterval(timer);
-        }
-      }, 25 * Math.random());
-    });
+    this.handleMutation = this.handleMutation.bind(this);
   }
 
-  let observer;
-  function handleMutation(mutation) {
+  incrementarNumero(e) {
+    const total = +e.innerText;
+    const inscremento = Math.floor(total / 100);
+    let start = 0;
+    const timer = setInterval(() => {
+      start += inscremento;
+      e.innerText = start;
+      if (start > total) {
+        e.innerText = total;
+        clearInterval(timer);
+      }
+    }, 25 * Math.random());
+  }
+
+  animaNumeros() {
+    this.numeros.forEach((numero) => this.incrementarNumero(numero));
+  }
+
+  handleMutation(mutation) {
     if (mutation[0].target.classList.contains('ativo')) {
-      observer.disconnect();
-      animaNumeros();
+      this.observer.disconnect();
+      this.animaNumeros();
     }
   }
-  observer = new MutationObserver(handleMutation);
-  const observerTarget = document.querySelector('.numeros');
 
-  observer.observe(observerTarget, { attributes: true });
+  addObserver() {
+    this.observer = new MutationObserver(this.handleMutation);
+    this.observer.observe(this.observerTarget, { attributes: true });
+  }
+
+  init() {
+    if(this.numeros && this.observerTarget){
+      this.addObserver();
+    }
+  }
 }
