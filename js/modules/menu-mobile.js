@@ -48,13 +48,13 @@ export default class MenuMobile {
       this.eventos.forEach((evento) => this.menuButton.addEventListener(evento, this.openMenu));
     }
     
-    if (window.matchMedia('(max-width: 700px)').matches){
-      this.dropdownMenus.forEach((dropdown) => {
-        dropdown.addEventListener('click', () => {
+    this.dropdownMenus.forEach((dropdown) => {
+      dropdown.addEventListener('click', () => {
+        if (window.matchMedia('(max-width: 700px)').matches){
           dropdown.classList.toggle('active');
-        });
+        }
       });
-    }
+    });
 
     this.opcoesMenu.forEach((i) => {
       i.addEventListener('click', () => {
