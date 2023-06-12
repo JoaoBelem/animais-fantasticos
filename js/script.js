@@ -12,7 +12,7 @@ import initFuncionamento from './modules/funcionamento.js';
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
 
-const accordion = new Accordion('[data-anime="accordion"] dt', 0);
+const accordion = new Accordion('[data-anime="accordion"] dt');
 accordion.init();
 
 const tabNav = new TabNav('[data-tab="menu"] li', '[data-tab="content"] section');
@@ -24,7 +24,6 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-
 const menuMobile = new MenuMobile('nav.menu');
 menuMobile.init();
 
@@ -34,10 +33,11 @@ modal.init();
 const tooltip = new Tooltip();
 tooltip.init();
 
-FetchAnimais('animaisapi.json', '.numeros-grid');
 FetchBitcoin('https://blockchain.info/ticker', '.btc-preco');
+
+await FetchAnimais('animaisapi.json', '.numeros-grid')
 
 const scrollAnima = new ScrollAnima('[data-anime="scroll"]');
 scrollAnima.init();
 
-initFuncionamento();
+initFuncionamento();  

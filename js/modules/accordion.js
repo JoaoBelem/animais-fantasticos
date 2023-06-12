@@ -1,3 +1,8 @@
+/*
+Este plugin pode gerar conflito com outros plugins
+Caso use o addClass
+*/
+
 export default class Accordion {
   constructor(item, start) {
     this.accordionList = document.querySelectorAll(item);
