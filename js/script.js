@@ -6,8 +6,8 @@ import Modal from './modules/modal.js';
 import Tooltip from './modules/tooltip.js';
 import FetchAnimais from './modules/fetch-animais.js';
 import FetchBitcoin from './modules/fetch-bitcoin.js';
+import ScrollAnima from './modules/scroll-anima.js';
 import initFuncionamento from './modules/funcionamento.js';
-import initAnimacaoScroll from './modules/scroll-animacao.js';
 
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
@@ -37,5 +37,7 @@ tooltip.init();
 FetchAnimais('animaisapi.json', '.numeros-grid');
 FetchBitcoin('https://blockchain.info/ticker', '.btc-preco');
 
+const scrollAnima = new ScrollAnima('[data-anime="scroll"]');
+scrollAnima.init();
+
 initFuncionamento();
-initAnimacaoScroll();
