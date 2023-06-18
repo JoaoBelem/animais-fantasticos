@@ -2,7 +2,7 @@
   "name": "0609-bitcoin-fetch",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "dev": "webpack --mode development --watch ./js/script.js -o ./",
     "build": "webpack --mode production ./js/script.js -o ./"

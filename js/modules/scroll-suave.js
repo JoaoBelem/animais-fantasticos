@@ -14,12 +14,12 @@ export default class ScrollSuave {
     const href = event.currentTarget.getAttribute('href');
     const section = document.querySelector(href);
 
-    if (window.matchMedia('(max-width:  700px)').matches){
+    if (window.matchMedia('(max-width:  700px)').matches) {
       window.scroll({
         behavior: 'smooth',
-        top: section.offsetTop - 54
+        top: section.offsetTop - 54,
       });
-    }else {
+    } else {
       section.scrollIntoView(this.options);
     }
   }
@@ -31,7 +31,7 @@ export default class ScrollSuave {
   }
 
   init() {
-    if(this.linksInternos.length){
+    if (this.linksInternos.length) {
       this.addLinkEvent();
     }
     return this;
