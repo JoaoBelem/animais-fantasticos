@@ -17,14 +17,12 @@ export default class Accordion {
   addClass(item) {
     if (item !== undefined) {
       this.accordionList[item].classList.add(this.activeClass);
-      this.accordionList[item].nextElementSibling.classList.add(
-        this.activeClass
-      );
+      this.accordionList[item].nextElementSibling.classList.add(this.activeClass);
     }
   }
 
   removeClass(item) {
-    if(item !== undefined){
+    if (item !== undefined) {
       this.accordionList[item].classList.remove(this.activeClass);
       this.accordionList[item].nextElementSibling.classList.remove(this.activeClass);
     }
