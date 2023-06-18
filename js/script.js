@@ -19,7 +19,7 @@ const tabNav = new TabNav('[data-tab="menu"] li', '[data-tab="content"] section'
 tabNav.init();
 
 document.addEventListener('keydown', (e) => {
-  if (e.key.match(/\d/)){
+  if (e.key.match(/\d/)) {
     tabNav.goto(e.key - 1);
   }
 });
@@ -35,9 +35,9 @@ tooltip.init();
 
 FetchBitcoin('https://blockchain.info/ticker', '.btc-preco');
 
-await FetchAnimais('animaisapi.json', '.numeros-grid')
+await FetchAnimais('animaisapi.json', '.numeros-grid');
 
 const scrollAnima = new ScrollAnima('[data-anime="scroll"]');
 scrollAnima.init();
 
-initFuncionamento();  
+initFuncionamento();

@@ -1,16 +1,18 @@
 /*
-O menu deve ser selecionado pela classe.
+O menu deve ser selecionado, o padrão é "nav.menu".
 O botão do menu mobile deve ter o atributo [data-menu="button"].
 A lista de itens deve ter o atributo [data-menu="list"].
 
 Caso haja uma lista de itens(dropdown menu), o item pai deve ter o atributo [data-dropdown].
-e a lista de itens(dropdown menu), a mesma deve ter o atributo [data-menu="list"].
+O "dropdown-menu" deve estar contido dentro do "data-dropdown".
+ul[data-dropdown]
+  - ul.dropdown-menu
 */
 
 import outsideClick from './outsideclick.js';
 
 export default class MenuMobile {
-  constructor(nomeMenu){
+  constructor(nomeMenu) {
     if (nomeMenu === undefined) {
       this.menu = document.querySelector('nav.menu');
     } else {
@@ -35,7 +37,7 @@ export default class MenuMobile {
       this.menuButton.classList.remove('active');
       this.dropdownMenus.forEach((i) => {
         i.classList.remove('active');
-      })
+      });
     });
   }
 
@@ -43,14 +45,14 @@ export default class MenuMobile {
     this.classList.toggle('active');
   }
 
-  init(){
+  init() {
     if (this.menuButton) {
       this.eventos.forEach((evento) => this.menuButton.addEventListener(evento, this.openMenu));
     }
-    
+
     this.dropdownMenus.forEach((dropdown) => {
       dropdown.addEventListener('click', () => {
-        if (window.matchMedia('(max-width: 700px)').matches){
+        if (window.matchMedia('(max-width: 700px)').matches) {
           dropdown.classList.toggle('active');
         }
       });
