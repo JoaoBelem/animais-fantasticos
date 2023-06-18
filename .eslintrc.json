@@ -11,6 +11,7 @@
   },
   "rules": {
     "import/extensions": "off",
-    "class-methods-use-this" : "off"
+    "class-methods-use-this" : "off",
+    "no-new": "off"
   }
 }
