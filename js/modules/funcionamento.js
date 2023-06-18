@@ -91,5 +91,6 @@ export default class HorarioFuncionamento {
 
   init() {
     this.funcionamento.forEach((i) => this.result(i));
+    return this;
   }
 }

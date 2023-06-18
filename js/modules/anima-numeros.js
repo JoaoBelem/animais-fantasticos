@@ -38,8 +38,9 @@ export default class AnimaNumeros {
   }
 
   init() {
-    if(this.numeros && this.observerTarget){
+    if (this.numeros && this.observerTarget) {
       this.addObserver();
     }
+    return this;
   }
 }

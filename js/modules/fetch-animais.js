@@ -1,5 +1,4 @@
 import AnimaNumeros from './anima-numeros.js';
-import ScrollAnima from './scroll-anima.js';
 
 export default function FetchAnimais(url, alvo) {
   function createAnimal(animal) {
@@ -20,7 +19,7 @@ export default function FetchAnimais(url, alvo) {
         const divAnimal = createAnimal(animal);
         numerosGrid.appendChild(divAnimal);
       });
-      
+
       const animaNumeros = new AnimaNumeros();
       animaNumeros.init();
 
