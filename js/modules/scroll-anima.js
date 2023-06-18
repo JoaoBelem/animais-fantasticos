@@ -20,10 +20,8 @@ export default class ScrollAnima {
 
   checkDistance() {
     this.distance.forEach((item) => {
-      // console.log(window.scrollY, item);
       if (window.scrollY > item.offset - this.windowMetade) {
         item.element.classList.add('ativo');
-        // console.log(item.element);
       } else {
         item.element.classList.remove('ativo');
       }
