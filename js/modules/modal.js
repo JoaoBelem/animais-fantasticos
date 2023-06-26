@@ -1,5 +1,6 @@
 /*
-É recomendado que o container do modal tenhas as seguintes propriedades CSS: position absolute e z-index acima da página toda.
+É recomendado que o container do modal tenhas as seguintes propriedades
+CSS: position absolute e z-index acima da página toda.
 */
 
 export default class Modal {
@@ -19,8 +20,9 @@ export default class Modal {
   }
 
   toggleModal(event) {
-    if (event)
-    event.preventDefault();
+    if (event) {
+      event.preventDefault();
+    }
     this.containerModal.classList.toggle(this.activeClass);
   }
 
@@ -34,7 +36,7 @@ export default class Modal {
     if (this.botaoAbrir && this.botaoFechar && this.containerModal) {
       this.botaoAbrir.addEventListener('click', this.toggleModal);
       this.botaoFechar.addEventListener('click', this.toggleModal);
-      this.containerModal.addEventListener('click', this.cliqueForaModal);
+      this.containerModal.addEventListener('mousedown', this.cliqueForaModal);
     }
     return this;
   }
