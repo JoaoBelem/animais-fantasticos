@@ -8,6 +8,7 @@ import FetchAnimais from './modules/fetch-animais.js';
 import FetchBitcoin from './modules/fetch-bitcoin.js';
 import ScrollAnima from './modules/scroll-anima.js';
 import HorarioFuncionamento from './modules/funcionamento.js';
+import { SlideNav } from './modules/slide.js';
 
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
@@ -41,3 +42,6 @@ const scrollAnima = new ScrollAnima('[data-anime="scroll"]');
 scrollAnima.init();
 
 new HorarioFuncionamento('aberto');
+
+const slide = new SlideNav('.slide', '.slide-wrapper');
+slide.addControl('.custom-controls');
