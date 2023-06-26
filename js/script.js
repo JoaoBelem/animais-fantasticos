@@ -10,7 +10,7 @@ import ScrollAnima from './modules/scroll-anima.js';
 import HorarioFuncionamento from './modules/funcionamento.js';
 import { SlideNav } from './modules/slide.js';
 
-const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
+const scrollSuave = new ScrollSuave('[data-menu] a[href^="#"]');
 scrollSuave.init();
 
 const accordion = new Accordion('[data-anime="accordion"] dt');

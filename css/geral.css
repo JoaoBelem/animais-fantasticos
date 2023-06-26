@@ -208,7 +208,7 @@ body {
     padding: 10px;
   }
   .animais{
-    margin-top: 54px;
+    margin-top: 0;
   }
   .animais-lista {
     grid-column: 1;
@@ -230,7 +230,8 @@ body {
     font-size: 3rem;
   }
   .menu {
-    margin-top: 0px;
+    margin-top: 0;
+    margin-bottom: 1rem;
   }
   .copy {
     margin-bottom: 0px;
